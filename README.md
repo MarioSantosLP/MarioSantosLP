@@ -1,6 +1,6 @@
 # 👋 Mario Santos
 
-Estudante de Engenharia Informática 
+Estudante de Engenharia Informática, na Universidade de Aveiro 
 
 ## 🚀 Tech Stack
 
