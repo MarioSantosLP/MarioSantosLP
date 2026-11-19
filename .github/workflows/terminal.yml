@@ -1,0 +1,29 @@
+name: Update terminal
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours, keeps the contribution count fresh
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  terminal:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build terminal.svg with the latest contribution count
+        run: python3 scripts/terminal.py
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output
+          build_dir: assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

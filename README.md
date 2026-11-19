@@ -1,13 +1,6 @@
 <p align="center">
-  <img src="assets/terminal.svg" alt="Terminal intro: Mario Santos, Computer Engineering student at the University of Aveiro" width="100%" />
+  <img src="https://raw.githubusercontent.com/MarioSantosLP/MarioSantosLP/output/terminal.svg" alt="Terminal intro: Mario Santos, Computer Engineering student at the University of Aveiro" width="100%" />
 </p>
-
-### Contributions
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MarioSantosLP/MarioSantosLP/output/github-snake-dark.svg" />
-  <img alt="Snake eating my contribution graph" src="https://raw.githubusercontent.com/MarioSantosLP/MarioSantosLP/output/github-snake.svg" width="100%" />
-</picture>
 
 ### Get in touch
 

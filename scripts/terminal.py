@@ -5,8 +5,38 @@ Edit SCRIPT below and run:  python3 scripts/terminal.py
 Each entry is either ("cmd", "text") for a typed command or ("out", [segments])
 for output that appears all at once. Segments are (color, text) pairs.
 """
+import json
+import os
+import urllib.request
+from datetime import date
 from html import escape
 from pathlib import Path
+
+USER = "MarioSantosLP"
+
+
+def contributions():
+    """Returns (total in the last year, current daily streak), or None without a token."""
+    token = os.environ.get("GH_TOKEN")
+    if not token:
+        return None
+    q = ('query($u:String!){user(login:$u){contributionsCollection{contributionCalendar{'
+         'totalContributions weeks{contributionDays{date contributionCount}}}}}}')
+    req = urllib.request.Request(
+        "https://api.github.com/graphql",
+        data=json.dumps({"query": q, "variables": {"u": USER}}).encode(),
+        headers={"Authorization": f"bearer {token}", "Content-Type": "application/json"},
+    )
+    cal = json.load(urllib.request.urlopen(req))["data"]["user"]["contributionsCollection"]["contributionCalendar"]
+    days = [d for w in cal["weeks"] for d in w["contributionDays"] if d["date"] <= date.today().isoformat()]
+    if days and days[-1]["contributionCount"] == 0:
+        days = days[:-1]  # today isn't over yet, so it doesn't break the streak
+    streak = 0
+    for d in reversed(days):
+        if d["contributionCount"] == 0:
+            break
+        streak += 1
+    return cal["totalContributions"], streak
 
 PROMPT = [("green", "mario@aveiro"), ("dim", ":~$ ")]
 
@@ -20,6 +50,7 @@ SCRIPT = [
     ("out", [("cyan", "  tools    "), ("fg", "Git · Linux · Docker")]),
     ("out", [("cyan", "  now      "), ("yellow", "SND, an AI agent that deploys 5G networks")]),
     ("out", [("cyan", "  offline  "), ("fg", "basketball")]),
+    ("activity", None),
     ("gap", None),
     ("end", None),
 ]
@@ -41,6 +72,15 @@ def build():
     rows, y, t = [], TOP, START
     prompt_w = sum(len(s) for _, s in PROMPT) * CW
     for kind, val in SCRIPT:
+        if kind == "activity":
+            stats = contributions()
+            if not stats:
+                continue
+            total, streak = stats
+            segs = [("cyan", "  activity "), ("green", f"{total:,}"), ("fg", " contributions in the last year")]
+            if streak > 1:
+                segs += [("dim", " · "), ("green", f"{streak}"), ("fg", "-day streak")]
+            kind, val = "out", segs
         if kind == "gap":
             y += LH * 0.45
             continue
