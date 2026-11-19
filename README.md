@@ -6,11 +6,7 @@
 
 **[SND: Self Network Deployer](https://mariosantoslp.github.io/SND-microsite/)** is my final-year project (PEI), built with the ATNoG research group.
 Setting up a 5G core by hand means editing a pile of config files that all have to agree with each other.
-With SND you describe the network you want in plain English, like *"two slices and 20 users"*, and an AI agent does the rest:
-
-```text
-describe  →  plan (LLM + RAG over the Open5GS docs)  →  build configs  →  test with simulated phones  →  fix and retry
-```
+With SND you describe the network you want in plain English, like *"two slices and 20 users"*, and an AI agent plans it, builds the configs and tests them with simulated phones.
 
 Built with React, FastAPI, Docker, Ansible, Open5GS and UERANSIM.
 
