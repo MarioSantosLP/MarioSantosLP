@@ -15,9 +15,8 @@ SCRIPT = [
     ("out", [("fg", "Mario Santos"), ("dim", "  // Computer Engineering student @ University of Aveiro")]),
     ("gap", None),
     ("cmd", "neofetch --short"),
-    ("out", [("cyan", "  langs    "), ("fg", "Python · Java · C · C++ · JavaScript · SQL · Bash · MATLAB")]),
+    ("out", [("cyan", "  langs    "), ("fg", "Python · Java · C · JavaScript · SQL · Bash")]),
     ("out", [("cyan", "  web      "), ("fg", "React · HTML · CSS")]),
-    ("out", [("cyan", "  data     "), ("fg", "MySQL · SQL Server · Cassandra")]),
     ("out", [("cyan", "  tools    "), ("fg", "Git · Linux · Docker")]),
     ("out", [("cyan", "  now      "), ("yellow", "SND, an AI agent that deploys 5G networks")]),
     ("out", [("cyan", "  offline  "), ("fg", "basketball")]),
@@ -82,7 +81,7 @@ def build():
     h = int(y + 22)
     dots = "".join(f'<circle cx="{22 + i * 20}" cy="18" r="6" fill="{c}"/>'
                    for i, c in enumerate(["#ff7b72", "#f2cc60", "#7ee787"]))
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" role="img" aria-label="Terminal: Mario Santos, Computer Engineering student at the University of Aveiro. Python, Java, C, C++, JavaScript, SQL, Bash, MATLAB, React. Working on SND, an AI agent that deploys 5G networks.">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{h}" viewBox="0 0 {W} {h}" role="img" aria-label="Terminal: Mario Santos, Computer Engineering student at the University of Aveiro. Python, Java, C, JavaScript, SQL, Bash, React. Working on SND, an AI agent that deploys 5G networks.">
 <rect x="0.5" y="0.5" width="{W - 1}" height="{h - 1}" rx="10" fill="#010409" stroke="#30363d"/>
 <path d="M0.5 10.5 a10 10 0 0 1 10 -10 H{W - 10.5} a10 10 0 0 1 10 10 V36 H0.5Z" fill="#161b22"/>
 <line x1="0.5" y1="36" x2="{W - 0.5}" y2="36" stroke="#30363d"/>
