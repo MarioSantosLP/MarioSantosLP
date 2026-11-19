@@ -1,19 +1,28 @@
-# 👋 Mario Santos
-
-Estudante de Engenharia Informática, na Universidade de Aveiro 
-
-## 🚀 Tech Stack
-
-<p>
-  <img src="https://skillicons.dev/icons?i=java,python,c,cpp,js,html,css,mysql,git,linux" />
+<p align="center">
+  <img src="assets/terminal.svg" alt="Terminal intro: Mario Santos, Computer Engineering student at the University of Aveiro" width="100%" />
 </p>
 
-## 📊 GitHub Stats
+### What I'm working on
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=MarioSantosLP&show_icons=true&theme=dark)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MarioSantosLP&layout=compact&theme=dark)
+**[SND: Self Network Deployer](https://mariosantoslp.github.io/SND-microsite/)** is my final-year project (PEI), built with the ATNoG research group.
+Setting up a 5G core by hand means editing a pile of config files that all have to agree with each other.
+With SND you describe the network you want in plain English, like *"two slices and 20 users"*, and an AI agent does the rest:
 
-## 🌐 Connect with Me
+```text
+describe  →  plan (LLM + RAG over the Open5GS docs)  →  build configs  →  test with simulated phones  →  fix and retry
+```
+
+Built with React, FastAPI, Docker, Ansible, Open5GS and UERANSIM.
+
+**[AI agent for a brick-breaker game](https://github.com/MarioSantosLP/ia-arkanoid-template)** is a Python agent we're writing for the Artificial Intelligence course.
+
+### Contributions
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MarioSantosLP/MarioSantosLP/output/github-snake-dark.svg" />
+  <img alt="Snake eating my contribution graph" src="https://raw.githubusercontent.com/MarioSantosLP/MarioSantosLP/output/github-snake.svg" width="100%" />
+</picture>
+
+### Get in touch
 
 [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:santoslucasmario@gmail.com)
-
