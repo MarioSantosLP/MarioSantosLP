@@ -136,5 +136,6 @@ def build():
 
 if __name__ == "__main__":
     out = Path(__file__).resolve().parent.parent / "assets" / "terminal.svg"
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(build(), encoding="utf-8")
     print(f"wrote {out}")
